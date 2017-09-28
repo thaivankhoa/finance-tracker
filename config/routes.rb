@@ -5,10 +5,15 @@ Rails.application.routes.draw do
   # root :to => 'welcome#index'
   root 'welcome#index'
 
+  resources :friendships
+  resources :users, only: [:show]
+
   get 'my_portfolio', to: "users#my_portfolio"
   get 'search_stocks', to: "stocks#search"
   get 'my_friends', to: "users#my_friends"
-
+  get 'search_friends', to: "users#search"
+  post 'add_friend', to: "users#add_friend"
+  delete 'remove_friend', to: "users#remove_friend"
   controller :welcome do
 
   end
