@@ -69,6 +69,8 @@ class UserStocksController < ApplicationController
   # DELETE /user_stocks/1
   # DELETE /user_stocks/1.json
   def destroy
+    debugger
+    @user_stock = current_user.user_stocks.find(params[:id])
     @user_stock.destroy
     respond_to do |format|
       format.html { redirect_to my_portfolio_path, notice: 'User stock was successfully destroyed.' }
